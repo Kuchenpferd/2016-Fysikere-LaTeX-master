@@ -1,2 +1,2 @@
-# 2016-Fysikere-LaTeX-master
-Den bedste master af dem alle! Fysikerenes fælles TeX master projekt
+# LaTeX master projektet!
+Et forsøg på en helt fantastisk fælles LaTeX master der indeholder alt hvad en fysiker kunne få brug for i en LaTeX master.
