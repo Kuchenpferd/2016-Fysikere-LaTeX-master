@@ -1,65 +1,109 @@
+% Public Version 0.1 (Alpha)
 %BEGIN_FOLD % ==================== Preamble ====================
-\documentclass[11pt,a4paper]{article}     % Optional = twoside
+\documentclass[11pt,a4paper]{article}       % Optional = twoside
 
 %BEGIN_FOLD % ==================== Packages ====================
 % ==================== Necessary packages ====================
-\usepackage[english]{babel}               % Languagepack
-\usepackage[utf8]{inputenc}               % Inputencoding for UTF8
+\usepackage[english]{babel}                 % Languagepack
+\usepackage[utf8]{inputenc}                 % Inputencoding for UTF8
 
 % ==================== Mathematics ====================
-\usepackage{amsmath}                      % Basic math tools
-\usepackage{amssymb}                      % Basic math symbols
-\usepackage{gauss}                        % Linear algebra tools (matrices)
+\usepackage{amsmath}                        % Basic math tools
+\usepackage{amssymb}                        % Basic math symbols
+\usepackage{gauss}                          % Linear algebra tools (matrices)
 
 % ==================== Layout ====================
-\usepackage{graphicx}                     % Importing .svg, .pdf and other
-\usepackage{caption}                      % Custom figure captions
-\usepackage{fancyhdr}                     % Package for fancy headers and footers
-\usepackage{lastpage}                     % Gives command \lastpage (Total number of pages in document)
-\usepackage[pdftex, colorlinks]{hyperref} % Makes hyperlinks work and coloured
-\usepackage{color}                        % Gives colour commands (Used for links)
+\usepackage{graphicx}                       % Importing .svg, .pdf and other
+\usepackage{caption}                        % Custom figure captions
+\usepackage{fancyhdr}                       % Package for fancy headers and footers
+\usepackage{lastpage}                       % Gives command \lastpage (Total number of pages in document)
+\usepackage[pdftex, colorlinks]{hyperref}   % Makes hyperlinks work and coloured
+\usepackage{color}                          % Gives colour commands (Used for links)
+\usepackage{listings}						% Support for code
 
 % ==================== Miscellaneous ===================
 
 
 %END_FOLD
-%BEGIN_FOLD % ================ Renewing commands ================
+%BEGIN_FOLD % ================ New commands ================
 
-\newcommand{\ul}[1]{\underline{\underline{#1}}}   % \ul{} (UnderLine) Double Underline for results
-\newcommand{\bv}[1]{\text{\textbf{#1}}}		  % \bv{} (Bold Vector) Use this to write vectors, as in the style guide
+\newcommand{\ul}[1]{\underline{\underline{#1}}}  				% \ul{} (UnderLine) Double Underline for results
+\newcommand{\bv}[1]{\text{\textbf{#1}}}		  					% \bv{} (Bold Vector) Use this to write vectors, as in the style guide
+\newcommand{\gamfa}[1]{\frac{1}{\sqrt{1-\frac{#1 ^2}{c^2}}}}	% \gamfa{v} {Gamma factor} Shorthand gamma factor as function of v
+\newcommand{\gamfain}[1]{\sqrt{1-\frac{#1 ^2}{c^2}}}			% \gamfain{v} {Inverse gamma factor} Shorthand for the inverse gamma factor
+\newcommand{\en}[1]{\text{#1}}									% \en{} {Enhed} Used to write units in non-italic
+\newcommand{\paa}[1]{\left( #1 \right)}							% \paa{} {Parenthesis} Shorthand for scaling parentheses.
+\newcommand{\paas}[1]{\left[ #1 \right]}						% \paas{} {Square brackets} Shorthand for square brackets
+\newcommand{\paac}[1]{\left\lbrace #1 \right\rbrace}			% \paac{} {Braces} Shorthand for braces (curly brackets)
+\newcommand{\mean}[1]{\left\langle #1 \right\rangle}			% \mean{} {mean value} Shorthand for mean value (Angles)
 
 %END_FOLD
 %BEGIN_FOLD % ================ Settings / Preferences ================
-\allowdisplaybreaks                       % Equation, align, and gather environments can have page breaks
+\allowdisplaybreaks							% Equation, align, and gather environments can have page breaks
 
-\hypersetup{colorlinks,                   % Hyperlinks are coloured blue
+\hypersetup{colorlinks,						% Hyperlinks are coloured blue
 	citecolor = black,
   filecolor = black,
 	linkcolor = black,
 	urlcolor = blue
 	}
-  
-  \lstset{                                % Numbers every 5 lines in code environments
+
+\lstset{			 						% Numbers every 5 lines in code environments
 		numbers	= left,
 		stepnumber = 5,
 		firstnumber = 1,
 		numberfirstline = true
 	  }
-    
-\renewcommand{\labelitemi}{·}             % Nicer dots for 'itemize' environments
+
+\renewcommand{\labelitemi}{·}				% Nicer dots for 'itemize' environments
 
 
 %END_FOLD
-%BEGIN_FOLD % ================ Header and Footer ================
 
+%BEGIN_FOLD % ================ Layout ================
+% ================ Header and Footer ================
+\pagestyle{fancy}											% Choosing a standard pagestyle template (add the line at the top of pages)
+\fancyhf[HLO,HRE]{\korttitel}								% Input for left column in the header	(Inner side if using twopage)
+\fancyhf[HC]{\dato}											% Input for center column in the header
+\fancyhf[HRO,HLE]{\navn}									% Input for the right column in the header (Outer side if using twopage)
+\fancyhf[FLO,FRE]{\kursus}									% Input for left footer (Inner side if using twopage)
+\fancyhf[FC]{}												% Input for center footer (Default empty)
+\fancyhf[FRO,FLE]{Page \thepage\ of \pageref{LastPage}}		% Page numbering in right footer column (Outer side if using twopage)
+\renewcommand{\headrulewidth}{0.5pt}						% Header line
+\renewcommand{\footrulewidth}{0.5pt}						% Footer line
+
+\fancypagestyle{plain}{										% Change the "plain" pagestyle (primarily used for the frontpage)
+	\fancyhf{}												% Clearing previous footer layout
+	\renewcommand{\headrulewidth}{0pt}						% Removing the header bar on the frontpage (pagestyle: plain)
+	\fancyhf[FL]{\kursus}									% Input for left footer on frontpage (plain pagestyle)
+	\fancyhf[FR]{Page \thepage\ of \pageref{LastPage}}		% Page numbering on the front page (Right footer column)
+}
+
+% ====================== General page layout =========================
+\addtolength\textheight{2cm}			% Increase text height on all pages by 2cm
+\addtolength\topmargin{-1cm}			%
+\addtolength\marginparwidth{1.5cm}		%
+\addtolength\headheight{1.6pt}			%
+
+%BEGIN_FOLD % ================ Header and Footer ================
+\pagestyle{fancy}				% Choosing a standard pagestyle template (add the line at the top of pages)
+\fancyhf[HLO,HRE]{\korttitel}	% Input for left column in the header	(Inner side if using twopage)
+\fancyhf[HC]{\dato}				% Input for center column in the header
+\fancyhf[HRO,HLE]{\navn}		% Input for the right column in the header (Outer side if using twopage)
+\fancyhf[FLO,FRE]{\kursus}		% Input for left footer (Inner side if using twopage)
+\fancyhf[FC]{}					% Input for center footer (Default empty)
 
 %END_FOLD
 %BEGIN_FOLD % ==================== MetaData ====================
 \newcommand{\titel}{Title}
+\newcommand{\korttitel}{Korttitel}
 \newcommand{\dato}{dd-mm-yyyy}
 \newcommand{\navn}{navn}
 \newcommand{\kursus}{Kursus}
 
+\title{\titel}				% Defining the title for \maketitle
+\author{\navn}				% Defining the author for \maketitle
+\date{\dato}				% Defining the date for \maketitle
 
 %END_FOLD
 %END_FOLD
