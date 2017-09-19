@@ -1,27 +1,52 @@
 %BEGIN_FOLD % ==================== Preamble ====================
-\documentclass[11pt,a4paper]{article}   % Optional = twoside
+\documentclass[11pt,a4paper]{article}     % Optional = twoside
 
 %BEGIN_FOLD % ==================== Packages ====================
 % ==================== Necessary packages ====================
-\usepackage[english]{babel}             % Languagepack
-\usepackage[utf8]{inputenc}             % Inputencoding for UTF8
+\usepackage[english]{babel}               % Languagepack
+\usepackage[utf8]{inputenc}               % Inputencoding for UTF8
 
 % ==================== Mathematics ====================
-\usepackage{amsmath}                    % Basic math tools
-\usepackage{amssymb}                    % Basic math symbols
-\usepackage{gauss}                      % Linear algebra tools (matrices)
+\usepackage{amsmath}                      % Basic math tools
+\usepackage{amssymb}                      % Basic math symbols
+\usepackage{gauss}                        % Linear algebra tools (matrices)
 
 % ==================== Layout ====================
-\usepackage{graphicx}                   % Importing .svg, .pdf and other
-\usepackage{caption}                    % Custom figure captions
-\usepackage{fancyhdr}                   % Package for fancy headers and footers
-\usepackage{lastpage}                   % Gives command \lastpage (Total number of pages in document)
+\usepackage{graphicx}                     % Importing .svg, .pdf and other
+\usepackage{caption}                      % Custom figure captions
+\usepackage{fancyhdr}                     % Package for fancy headers and footers
+\usepackage{lastpage}                     % Gives command \lastpage (Total number of pages in document)
+\usepackage[pdftex, colorlinks]{hyperref} % Makes hyperlinks work and coloured
+\usepackage{color}                        % Gives colour commands (Used for links)
 
 % ==================== Miscellaneous ===================
 
 
 %END_FOLD
 %BEGIN_FOLD % ================ Renewing commands ================
+
+\newcommand{\ul}[1]{\underline{\underline{#1}}}   % \ul{} = Double Underline for results
+
+
+%END_FOLD
+%BEGIN_FOLD % ================ Settings / Preferences ================
+\allowdisplaybreaks                       % Equation, align, and gather environments can have page breaks
+
+\hypersetup{colorlinks,                   % Hyperlinks are coloured blue
+	citecolor = black,
+  filecolor = black,
+	linkcolor = black,
+	urlcolor = blue
+	}
+  
+  \lstset{                                % Numbers every 5 lines in code environments
+		numbers	= left,
+		stepnumber = 5,
+		firstnumber = 1,
+		numberfirstline = true
+	  }
+    
+\renewcommand{\labelitemi}{·}             % Nicer dots for 'itemize' environments
 
 
 %END_FOLD
