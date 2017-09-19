@@ -1,16 +1,16 @@
 % Public Version 0.1 (Alpha)
 %BEGIN_FOLD % ==================== Preamble ====================
-\documentclass[11pt,a4paper]{article}     % Optional = twoside
+\documentclass[11pt,a4paper]{article}       % Optional = twoside
 
 %BEGIN_FOLD % ==================== Packages ====================
 % ==================== Necessary packages ====================
-\usepackage[english]{babel}               % Languagepack
-\usepackage[utf8]{inputenc}               % Inputencoding for UTF8
+\usepackage[english]{babel}                 % Languagepack
+\usepackage[utf8]{inputenc}                 % Inputencoding for UTF8
 
 % ==================== Mathematics ====================
-\usepackage{amsmath}                      % Basic math tools
-\usepackage{amssymb}                      % Basic math symbols
-\usepackage{gauss}                        % Linear algebra tools (matrices)
+\usepackage{amsmath}                        % Basic math tools
+\usepackage{amssymb}                        % Basic math symbols
+\usepackage{gauss}                          % Linear algebra tools (matrices)
 
 % ==================== Layout ====================
 \usepackage{graphicx}                       % Importing .svg, .pdf and other
@@ -97,11 +97,11 @@
 
 %BEGIN_FOLD % ================ Header and Footer ================
 \pagestyle{fancy}				% Choosing a standard pagestyle template (add the line at the top of pages)
-\pagehf[HLO,HRE]{\korttitel}	% Input for left column in the header	(Inner side if using twopage)
-\pagehf[HC]{\dato}				% Input for center column in the header
-\pagehf[HRO,HLE]{\navn}			% Input for the right column in the header (Outer side if using twopage)
-\pagehf[FLO,FRE]{\kursus}		% Input for left footer (Inner side if using twopage)
-\pagehf[FC]{}					% Input for center footer (Default empty)
+\fancyhf[HLO,HRE]{\korttitel}	% Input for left column in the header	(Inner side if using twopage)
+\fancyhf[HC]{\dato}				% Input for center column in the header
+\fancyhf[HRO,HLE]{\navn}			% Input for the right column in the header (Outer side if using twopage)
+\fancyhf[FLO,FRE]{\kursus}		% Input for left footer (Inner side if using twopage)
+\fancyhf[FC]{}					% Input for center footer (Default empty)
 
 %END_FOLD
 %BEGIN_FOLD % ==================== MetaData ====================
