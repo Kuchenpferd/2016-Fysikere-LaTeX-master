@@ -26,15 +26,14 @@
 %END_FOLD
 %BEGIN_FOLD % ================ New commands ================
 
-\newcommand{\ul}[1]{\underline{\underline{#1}}}  								% \ul{} (UnderLine) Double Underline for results
-\newcommand{\bv}[1]{\text{\textbf{#1}}}		  										% \bv{} (Bold Vector) Use this to write vectors, as in the style guide
+\newcommand{\ul}[1]{\underline{\underline{#1}}}   % \ul{} (UnderLine) Double Underline for results
+\newcommand{\bv}[1]{\text{\textbf{#1}}}		  			% \bv{} (Bold Vector) Use this to write vectors, as in the style guide
 \newcommand{\gamfa}[1]{\frac{1}{\sqrt{1-\frac{#1 ^2}{c^2}}}}		% \gamfa{v} {Gamma factor} Shorthand gamma factor as function of v
 \newcommand{\gamfain}[1]{\sqrt{1-\frac{#1 ^2}{c^2}}}						% \gamfain{v} {Inverse gamma factor} Shorthand for the inverse gamma factor
-\newcommand{\en}[1]{\text{#1}}																	% \en{} {Enhed} Used to write units in non-italic
-\newcommand{\paa}[1]{\left( #1 \right)}													% \paa{} {Parenthesis} Shorthand for scaling parentheses.
-\newcommand{\paas}[1]{\left[ #1 \right]}												% \paas{} {Square brackets} Shorthand for square brackets
-\newcommand{\paac}[1]{\left\lbrace #1 \right\rbrace}						% \paac{} {Braces} Shorthand for braces (curly brackets)
-\newcommand{\mean}[1]{\left\langle #1 \right\rangle}						% \mean{} {mean value} Shorthand for mean value (Angles)
+\newcommand{\en}[1]{\text{#1}}										% \en{} {Enhed} Used to write units in non-italic
+\newcommand{\paa}[1]{\left( #1 \right)}						% \paa{} {Parenthesis} Shorthand for scaling parentheses.
+\newcommand{\paas}[1]{\left[ #1 \right]}							% \paas{} {Square brackets} Shorthand for square brackets
+\newcommand{\paac}[1]{\left\lbrace #1 \right\rbrace}	% \paac{} {Braces} Shorthand for braces (curly brackets)
 
 %END_FOLD
 %BEGIN_FOLD % ================ Settings / Preferences ================
@@ -69,6 +68,13 @@
 \fancyhf[FRO,FLE]{Page \thepage\ of \pageref{LastPage}}		% Page numbering in right footer column (Outer side if using twopage)
 \renewcommand{\headrulewidth}{0.5pt}											% Header line
 \renewcommand{\footrulewidth}{0.5pt}											% Footer line
+
+\fancypagestyle{plain}{																	% Change the "plain" pagestyle (primarily used for the frontpage)
+	\fancyhf{}																						% Clearing previous footer layout
+	\renewcommand{\headrulewidth}{0pt}										% Removing the header bar on the frontpage (pagestyle: plain)
+	\fancyhf[FL]{\kursus}																	% Input for left footer on frontpage (plain pagestyle)
+	\fancyhf[FR]{Page \thepage\ of \pageref{LastPage}}		% Page numbering on the front page (Right footer column)
+}
 
 % ====================== General page layout =========================
 \addtolength\textheight{2cm}				% Increase text height on all pages by 2cm
