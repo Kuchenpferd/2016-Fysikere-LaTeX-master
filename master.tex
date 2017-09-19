@@ -18,15 +18,23 @@
 \usepackage{lastpage}                     % Gives command \lastpage (Total number of pages in document)
 \usepackage[pdftex, colorlinks]{hyperref} % Makes hyperlinks work and coloured
 \usepackage{color}                        % Gives colour commands (Used for links)
+\usepackage{listings}											% Support for code
 
 % ==================== Miscellaneous ===================
 
 
 %END_FOLD
-%BEGIN_FOLD % ================ Renewing commands ================
+%BEGIN_FOLD % ================ New commands ================
 
-\newcommand{\ul}[1]{\underline{\underline{#1}}}   % \ul{} (UnderLine) Double Underline for results
-\newcommand{\bv}[1]{\text{\textbf{#1}}}		  % \bv{} (Bold Vector) Use this to write vectors, as in the style guide
+\newcommand{\ul}[1]{\underline{\underline{#1}}}  								% \ul{} (UnderLine) Double Underline for results
+\newcommand{\bv}[1]{\text{\textbf{#1}}}		  										% \bv{} (Bold Vector) Use this to write vectors, as in the style guide
+\newcommand{\gamfa}[1]{\frac{1}{\sqrt{1-\frac{#1 ^2}{c^2}}}}		% \gamfa{v} {Gamma factor} Shorthand gamma factor as function of v
+\newcommand{\gamfain}[1]{\sqrt{1-\frac{#1 ^2}{c^2}}}						% \gamfain{v} {Inverse gamma factor} Shorthand for the inverse gamma factor
+\newcommand{\en}[1]{\text{#1}}																	% \en{} {Enhed} Used to write units in non-italic
+\newcommand{\paa}[1]{\left( #1 \right)}													% \paa{} {Parenthesis} Shorthand for scaling parentheses.
+\newcommand{\paas}[1]{\left[ #1 \right]}												% \paas{} {Square brackets} Shorthand for square brackets
+\newcommand{\paac}[1]{\left\lbrace #1 \right\rbrace}						% \paac{} {Braces} Shorthand for braces (curly brackets)
+\newcommand{\mean}[1]{\left\langle #1 \right\rangle}						% \mean{} {mean value} Shorthand for mean value (Angles)
 
 %END_FOLD
 %BEGIN_FOLD % ================ Settings / Preferences ================
@@ -38,28 +46,47 @@
 	linkcolor = black,
 	urlcolor = blue
 	}
-  
+
   \lstset{                                % Numbers every 5 lines in code environments
 		numbers	= left,
 		stepnumber = 5,
 		firstnumber = 1,
 		numberfirstline = true
 	  }
-    
+
 \renewcommand{\labelitemi}{·}             % Nicer dots for 'itemize' environments
 
 
 %END_FOLD
-%BEGIN_FOLD % ================ Header and Footer ================
+%BEGIN_FOLD % ================ Layout ================
+% ================ Header and Footer ================
+\pagestyle{fancy}																					% Choosing a standard pagestyle template (add the line at the top of pages)
+\fancyhf[HLO,HRE]{\korttitel}															% Input for left column in the header	(Inner side if using twopage)
+\fancyhf[HC]{\dato}																				% Input for center column in the header
+\fancyhf[HRO,HLE]{\navn}																	% Input for the right column in the header (Outer side if using twopage)
+\fancyhf[FLO,FRE]{\kursus}																% Input for left footer (Inner side if using twopage)
+\fancyhf[FC]{}																						% Input for center footer (Default empty)
+\fancyhf[FRO,FLE]{Page \thepage\ of \pageref{LastPage}}		% Page numbering in right footer column (Outer side if using twopage)
+\renewcommand{\headrulewidth}{0.5pt}											% Header line
+\renewcommand{\footrulewidth}{0.5pt}											% Footer line
 
+% ====================== General page layout =========================
+\addtolength\textheight{2cm}				% Increase text height on all pages by 2cm
+\addtolength\topmargin{-1cm}				%
+\addtolength\marginparwidth{1.5cm}	%
+\addtolength\headheight{1.6pt}			%
 
 %END_FOLD
 %BEGIN_FOLD % ==================== MetaData ====================
 \newcommand{\titel}{Title}
+\newcommand{\korttitel}{Korttitel}
 \newcommand{\dato}{dd-mm-yyyy}
 \newcommand{\navn}{navn}
 \newcommand{\kursus}{Kursus}
 
+\title{\titel}		% Defining the title for \maketitle
+\author{\navn}		% Defining the author for \maketitle
+\date{\dato}			% Defining the date for \maketitle
 
 %END_FOLD
 %END_FOLD
